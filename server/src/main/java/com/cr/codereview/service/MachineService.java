@@ -1,16 +1,15 @@
 package com.cr.codereview.service;
 
+import java.util.Optional;
+
 public class MachineService {
     // relation: GroupEnv -> AppRunningEnv -> Machine -> MachineStatusEnum
     public String getMachineStatus(GroupEnv groupEnv) {
-        if (groupEnv != null
-                && groupEnv.getAppRunningEnv() != null
-                && groupEnv.getAppRunningEnv().getMachine() != null
-                && groupEnv.getAppRunningEnv().getMachine().getStatus() != null) {
-
-            return groupEnv.getAppRunningEnv().getMachine().getStatus().getStatus();
-        }
-
-        return MachineStatusEnum.UNKNOWN.getStatus();
+        return Optional.ofNullable(groupEnv)
+                .map(GroupEnv::getAppRunningEnv)
+                .map(AppRunningEnv::getMachine)
+                .map(Machine::getStatus)
+                .map(MachineStatusEnum::getStatus)
+                .orElse(MachineStatusEnum.UNKNOWN.getStatus());
     }
 }
