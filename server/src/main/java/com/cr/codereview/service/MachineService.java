@@ -13,7 +13,7 @@ public class MachineService {
         if (groupEnvMap.containsKey(groupEnv.getAppRunningEnv().getMachine())) {
             return groupEnvMap.get(groupEnv.getAppRunningEnv().getMachine());
         }
-        return Optional.ofNullable(groupEnv)
+        return Optional.of(groupEnv)
                 .map(GroupEnv::getAppRunningEnv)
                 .map(AppRunningEnv::getMachine)
                 .map(Machine::getStatus)
