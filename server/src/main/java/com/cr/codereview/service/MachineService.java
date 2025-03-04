@@ -10,11 +10,11 @@ public class MachineService {
 
     // relation: GroupEnv -> AppRunningEnv -> Machine -> MachineStatusEnum
     public String getMachineStatus(GroupEnv groupEnv) {
-        if (groupEnvMap.containsKey(groupEnv.getAppRunningEnv().getMachine())) {
-            return groupEnvMap.get(groupEnv.getAppRunningEnv().getMachine());
+        if (groupEnvMap.containsKey(groupEnv.getAppRunningEnvironment().getMachine())) {
+            return groupEnvMap.get(groupEnv.getAppRunningEnvironment().getMachine());
         }
         return Optional.of(groupEnv)
-                .map(GroupEnv::getAppRunningEnv)
+                .map(GroupEnv::getAppRunningEnvironment)
                 .map(AppRunningEnv::getMachine)
                 .map(Machine::getStatus)
                 .map(MachineStatusEnum::getStatus)

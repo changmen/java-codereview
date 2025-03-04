@@ -1,14 +1,14 @@
 package com.cr.codereview.service;
 
 public class GroupEnv {
-    private AppRunningEnv appRunningEnv;
+    private AppRunningEnv appRunningEnvironment;
 
-    public AppRunningEnv getAppRunningEnv() {
-        return appRunningEnv;
+    public AppRunningEnv getAppRunningEnvironment() {
+        return appRunningEnvironment;
     }
 
-    public void setAppRunningEnv(AppRunningEnv appRunningEnv) {
-        this.appRunningEnv = appRunningEnv;
+    public void setAppRunningEnvironment(AppRunningEnv appRunningEnvironment) {
+        this.appRunningEnvironment = appRunningEnvironment;
     }
 }
 
